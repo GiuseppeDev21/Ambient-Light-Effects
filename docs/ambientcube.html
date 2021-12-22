@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="initial-scale=1.0" />
+    <title>Ambient Light Effects</title>
+    <link rel="stylesheet" href="style/ambientcube.css" />
+    <link rel="icon" href="img/cube.png" />
+  </head>
+  <body>
+    <div class="menu">
+      <div class="box box1" onclick="Color('green')"></div>
+      <div class="box box2" onclick="Color('purple')"></div>
+      <div class="box box3" onclick="Color('red')"></div>
+      <div class="box box4" onclick="Color('yellow')"></div>
+      <div class="box box5" onclick="Color('blue')"></div>
+      <div class="box box6" onclick="Color('pink')"></div>
+    </div>
+
+    <div class="cube">
+      <div class="top"></div>
+      <div>
+        <div style="--i: 0" class="side"></div>
+        <div style="--i: 1" class="side"></div>
+        <div style="--i: 2" class="side"></div>
+        <div style="--i: 3" class="side"></div>
+      </div>
+    </div>    
+  
+    <script src="js/mains.js"></script>
+  </body>
+</html>
