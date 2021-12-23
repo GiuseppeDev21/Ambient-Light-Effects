@@ -149,15 +149,14 @@ body {
   width: 300px;
 }
 
-@media (max-width: 420px) {
-  body {
-    gap: -10px;
-  }
+@media (max-width: 750px) {
   .menu {
     gap: 10px;
     height: 150px;
     width: 100%;
-    margin-top: -40px;
+    margin-top: -15%;
+    align-items: center;
+    justify-content: center;
   }
 
   .box {
@@ -166,8 +165,8 @@ body {
     width: 70px;
   }
 
-  .cube {
-    margin-top: -300px;
+  .cube{
+    margin-top: -85%;
   }
 
   .cube,
