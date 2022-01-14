@@ -1,7 +1,9 @@
 :root {
-    --tp : linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
-  /* --tp : linear-gradient(-45deg, #eba102, #f10271, #00c298); */
   --bg: #202c41;
+  --side: #fff;
+  --top: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
+  --up: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
+  --below: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
 }
 
 * {
@@ -18,35 +20,12 @@ body {
   justify-content: center;
   min-height: 100vh;
   flex-wrap: wrap;
+  transition: background-color 0.5s ease-in-out;
 }
 
-.cube {
-  animation: animate 5s 1s linear infinite;
-  height: 300px;
-  position: relative;
-  transform-style: preserve-3d;
-  transform: rotateX(-30deg);
-  width: 300px;
-}
-@keyframes animate {
-  0% {
-    transform: rotateX(-30deg) rotateY(0deg);
-  }
-  100% {
-    transform: rotateX(-30deg) rotateY(360deg);
-  }
-}
-
-.cube div {
-  height: 100%;
-  left: 0;
-  position: absolute;
-  top: 0;
-  transform-style: preserve-3d;
-  width: 100%;
-}
 
 .menu {
+  animation: show 1.5s ease-in-out;
   align-items: center;
   display: flex;
   height: 600px;
@@ -55,6 +34,11 @@ body {
   flex-wrap: wrap;
   flex-direction: column;
   width: 340px;
+  opacity: 1;
+}
+@keyframes show {
+  0%{opacity: 0;}
+  100%{opacity: 100;}
 }
 
 .box {
@@ -89,9 +73,35 @@ body {
   background: #ed73d7;
 }
 
+.cube {
+  animation: animate 5s 2.5s linear infinite;
+  height: 300px;
+  position: relative;
+  transform-style: preserve-3d;
+  transform: rotateX(-30deg);
+  width: 300px;
+}
+@keyframes animate {
+  0% {
+    transform: rotateX(-30deg) rotateY(0deg);
+  }
+  100% {
+    transform: rotateX(-30deg) rotateY(360deg);
+  }
+}
+
+.cube div {
+  height: 100%;
+  left: 0;
+  position: absolute;
+  top: 0;
+  transform-style: preserve-3d;
+  width: 100%;
+}
+
 .side {
   animation: Bg 15s ease infinite;
-  background: var(--tp);
+  background: var(--side);
   background-size: 400% 400%;
   height: 100%;
   left: 0;
@@ -102,20 +112,21 @@ body {
 }
 
 .up {
-    animation: Bg 15s ease infinite;
-    background: var(--tp);
-    background-size: 400% 400%;
-    height: 300px;
-    left: 0;
-    position: absolute;
-    transform: translateZ(70px);
-    top: 0;
-    width: 300px;
+  animation: Bg 15s ease infinite;
+  background: var(--up);
+  background-size: 400% 400%;
+  height: 300px;
+  left: 0;
+  position: absolute;
+  transform: translateZ(70px);
+  transition: background-color 0.7s ease-in-out;
+  top: 0;
+  width: 300px;
 }
 
 .top {
   animation: Bg 15s ease infinite;
-  background: var(--tp);
+  background: var(--top);
   background-size: 400% 400%;
   height: 300px;
   left: 0;
@@ -123,6 +134,7 @@ body {
   top: 0;
   position: absolute;
   width: 300px;
+  transition: background-color 0.3s ease-in-out;
 }
 @keyframes Bg {
   0% {
@@ -138,18 +150,23 @@ body {
 
 .below {
   animation: Bg 15s ease infinite;
-  background: var(--tp);
+  background: var(--below);
   background-size: 400% 400%;
   filter: blur(20px);
   height: 300px;
   left: 0;
   position: absolute;
   transform: translateZ(-400px);
+  transition: background 20s ease-in-out;
   top: 0;
   width: 300px;
+  transition: background-color 0.8s ease-in-out;
 }
 
 @media (max-width: 750px) {
+  body {
+    gap: 250px;
+  }
   .menu {
     gap: 10px;
     height: 150px;
@@ -165,7 +182,7 @@ body {
     width: 70px;
   }
 
-  .cube{
+  .cube {
     margin-top: -85%;
   }
 

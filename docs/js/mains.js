@@ -1,65 +1,66 @@
 // Make the same stuff with query selector
-const Color = (color) => {
-  switch (color) {
-    case 'green':
-      primary = '#abf4ce';
-      secondary = '#73edae';
-      top_ = '#1f804e';
-      bg_ = '#384f44';
-      break;
-    case 'purple':
-      primary = '#7707ff';
-      secondary = '#a473ed';
-      top_ = '#4b1f80';
-      bg_ = '#3b384f';
-      break;
+const key = [
+  {
+    id: 'green',
+    primary: '#abf4ce',
+    secondary: '#73edae',
+    tertiary: '#1f804e',
+    quaternary: '#384f44',
+  },
+  {
+    id:'purple',
+    primary: '#7707ff',
+    secondary: '#a473ed',
+    tertiary: '#4b1f80',
+    quaternary: '#3b384f',
+  },
+  {
+    id:'red',
+    primary: '#ff075a',
+    secondary: '#ed7373',
+    tertiary: '#801f1f',
+    quaternary: '#4f3838',
+  },
+  {
+    id:'yellow',
+    primary: '#f3ff07',
+    secondary: '#e7ed73',
+    tertiary: '#80801f',
+    quaternary: '#4f4e38',
+  },
+  {
+    id:'blue',
+    primary: '#7397ed',
+    secondary: '#89c5f5',
+    tertiary: '#1f4f80',
+    quaternary: '#38414f',
+  },
+  {
+    id:'pink',
+    primary: '#ee36b7',
+    secondary: '#ed73d7',
+    tertiary: '#801f70',
+    quaternary: '#4e384f',
+  },
+];
 
-    case 'red':
-      primary = '#ff075a';
-      secondary = '#ed7373';
-      top_ = '#801f1f';
-      bg_ = '#4f3838';
-      break;
+const colors = document.getElementsByClassName('box');
+let i;
+for (i = 0; i < colors.length; i++) {
+  colors[i].addEventListener('click', changecolor);
+}
 
-    case 'yellow':
-      primary = '#f3ff07';
-      secondary = '#e7ed73';
-      top_ = '#80801f';
-      bg_ = '#4f4e38';
-      break;
+function changecolor() {
+  let color = this.getAttribute('data-color');
+  const select = key.find(elemento => {return elemento.id === color;});
 
-    case 'blue':
-      primary = '#7397ed';
-      secondary = '#89c5f5';
-      top_ = '#1f4f80';
-      bg_ = '#38414f';
-      break;
-
-    case 'pink':
-      primary = '#ee36b7';
-      secondary = '#ed73d7';
-      top_ = '#801f70';
-      bg_ = '#4e384f';
-      break;
-    default:
-      break;
-  }
-  let background = document.querySelector('body');
-  background.style.background = bg_;
-
-  let top = document.querySelector('.top');
-  top.style.background = top_;
-
-  let up = document.querySelector('.up');
-  up.style.background = primary;
-
-  let below = document.querySelector('.below');
-  below.style.background = secondary;
-
-  let elements = document.querySelectorAll('.side');
-  for (let i = 0; i < elements.length; i++) {
-    elements[
-      i
-    ].style.background = `linear-gradient( ${primary}, ${secondary} )`;
-  }
-};
+  let root = document.querySelector(':root');
+  root.style.setProperty('--bg', select.quaternary);
+  root.style.setProperty('--side',`linear-gradient( ${select.primary}, ${select.secondary} )`);
+  root.style.setProperty('--top', select.tertiary);
+  root.style.setProperty('--up', select.primary);
+  root.style.setProperty('--below', select.secondary);
+  //   var rootStyles = getComputedStyle(root);
+  //   var mainColor = rootStyles.getPropertyValue('--bg');
+  //   console.log(rootStyles);
+}
