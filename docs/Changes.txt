@@ -1,4 +1,2 @@
-1- Re-adjust cellphone keyframe by 300px to 150px.
-2- New sidebox color to white.
-3- Added transitions to side change colors.
-4- New Js estructuring to improve the behavior and performance.
+1- Re-adjust cellphone keyframe by 150px to 600px.
+2- Add Tablet-Keyframe

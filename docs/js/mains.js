@@ -1,4 +1,3 @@
-// Make the same stuff with query selector
 const key = [
   {
     id: 'green',

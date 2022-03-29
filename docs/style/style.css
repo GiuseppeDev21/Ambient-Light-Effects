@@ -16,13 +16,12 @@ body {
   align-items: center;
   background-color: var(--bg);
   display: flex;
-  gap: 300px;
+  gap: 200px;
   justify-content: center;
-  min-height: 100vh;
   flex-wrap: wrap;
+  min-height: 100vh;
   transition: background-color 0.5s ease-in-out;
 }
-
 
 .menu {
   animation: show 1.5s ease-in-out;
@@ -37,8 +36,12 @@ body {
   opacity: 1;
 }
 @keyframes show {
-  0%{opacity: 0;}
-  100%{opacity: 100;}
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 100;
+  }
 }
 
 .box {
@@ -163,32 +166,81 @@ body {
   transition: background-color 0.8s ease-in-out;
 }
 
-@media (max-width: 750px) {
+@media screen and (max-width: 1024px){
   body {
-    gap: 250px;
+    min-height: 0vh;
+    margin-bottom: 200px;
   }
-  .menu {
-    gap: 10px;
-    height: 150px;
-    width: 100%;
-    margin-top: -15%;
+  .menu{
+    height:350px;
+    width: 90%;
     align-items: center;
     justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0rem;
   }
 
   .box {
     border-radius: 20px;
-    height: 70px;
-    width: 70px;
-  }
-
-  .cube {
-    margin-top: -85%;
+    height: 150px;
+    width: 150px;
   }
 
   .cube,
   .top {
-    height: 200px;
+    height: 400px;
+    width: 400px;
+  }
+
+  .side {
+    transform: rotateY(calc(90deg * var(--i))) translateZ(200px);
+  }
+
+  .top {
+    transform: rotateX(90deg) translateZ(200px);
+  }
+  .up {
+    width: 400px;
+    height: 400px;
+    transform: translateZ(100px);
+  }
+
+  .below {
+    transform: translateZ(-500px);
+    height: 400px;
+    width: 400px;
+  }
+  
+}
+
+@media screen and (max-width: 600px){
+
+  body {
+    min-height: 0vh;
+    gap: 0px;
+  }
+  .menu{
+    gap: 10px;
+    height:250px;
+    width: 90%;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .box {
+    border-radius: 20px;
+    height: 80px;
+    width: 80px;
+  }
+
+  .cube{
+    margin-top: 8rem;
+  }
+
+  .cube,
+  .top {
+    height:200px;
     width: 200px;
   }
 
@@ -199,15 +251,15 @@ body {
   .top {
     transform: rotateX(90deg) translateZ(100px);
   }
+  .up {
+    width: 400px;
+    height: 400px;
+    transform: translateZ(50px);
+  }
 
   .below {
     transform: translateZ(-300px);
-    height: 200px;
-    width: 200px;
-  }
-  .up {
-    width: 200px;
-    height: 200px;
-    transform: translateZ(50px);
+    height: 400px;
+    width: 400px;
   }
 }
