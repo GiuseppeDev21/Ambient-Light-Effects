@@ -1,9 +1,7 @@
 :root {
   --bg: #202c41;
+  --initial: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
   --side: #fff;
-  --top: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
-  --up: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
-  --below: linear-gradient(90deg, #40e0d0, #ff8c00, #ff0080);
 }
 
 * {
@@ -21,6 +19,7 @@ body {
   flex-wrap: wrap;
   min-height: 100vh;
   transition: background-color 0.5s ease-in-out;
+  overflow: hidden;
 }
 
 .menu {
@@ -57,22 +56,22 @@ body {
   transform: scale(1.2);
 }
 
-.box1 {
+.box[color='green'] {
   background: #73edae;
 }
-.box2 {
+.box[color='purple'] {
   background: #a473ed;
 }
-.box3 {
+.box[color='red'] {
   background: #ed7373;
 }
-.box4 {
+.box[color='yellow'] {
   background: #ede973;
 }
-.box5 {
+.box[color='blue'] {
   background: #89c5f5;
 }
-.box6 {
+.box[color='pink'] {
   background: #ed73d7;
 }
 
@@ -104,8 +103,8 @@ body {
 
 .side {
   animation: Bg 15s ease infinite;
-  background: var(--side);
   background-size: 400% 400%;
+  background: #fff;
   height: 100%;
   left: 0;
   position: absolute;
@@ -114,10 +113,29 @@ body {
   width: 100%;
 }
 
+.side[color='green'] {
+  background: linear-gradient(#abf4ce, #73edae);
+}
+.side[color='purple'] {
+  background: linear-gradient(#7707ff, #a473ed);
+}
+.side[color='red'] {
+  background: linear-gradient(#ff075a, #ed7373);
+}
+.side[color='yellow'] {
+  background: linear-gradient(#f3ff07, #e7ed73);
+}
+.side[color='blue'] {
+  background: linear-gradient(#7397ed, #89c5f5);
+}
+.side[color='pink'] {
+  background: linear-gradient(#ee36b7, #ed73d7);
+}
+
 .up {
   animation: Bg 15s ease infinite;
-  background: var(--up);
   background-size: 400% 400%;
+  background: var(--initial);
   height: 300px;
   left: 0;
   position: absolute;
@@ -127,10 +145,29 @@ body {
   width: 300px;
 }
 
+.up[color='green'] {
+  background: #abf4ce;
+}
+.up[color='purple'] {
+  background: #7707ff;
+}
+.up[color='red'] {
+  background: #ff075a;
+}
+.up[color='yellow'] {
+  background: #f3ff07;
+}
+.up[color='blue'] {
+  background: #7397ed;
+}
+.up[color='pink'] {
+  background: #ee36b7;
+}
+
 .top {
   animation: Bg 15s ease infinite;
-  background: var(--top);
   background-size: 400% 400%;
+  background: var(--initial);
   height: 300px;
   left: 0;
   transform: rotateX(90deg) translateZ(150px);
@@ -139,6 +176,26 @@ body {
   width: 300px;
   transition: background-color 0.3s ease-in-out;
 }
+
+.top[color='green'] {
+  background: #1f804e;
+}
+.top[color='purple'] {
+  background: #4b1f80;
+}
+.top[color='red'] {
+  background: #801f1f;
+}
+.top[color='yellow'] {
+  background: #80801f;
+}
+.top[color='blue'] {
+  background: #1f4f80;
+}
+.top[color='pink'] {
+  background: #801f70;
+}
+
 @keyframes Bg {
   0% {
     background-position: 0% 50%;
@@ -153,8 +210,8 @@ body {
 
 .below {
   animation: Bg 15s ease infinite;
-  background: var(--below);
   background-size: 400% 400%;
+  background: var(--initial);
   filter: blur(20px);
   height: 300px;
   left: 0;
@@ -166,13 +223,32 @@ body {
   transition: background-color 0.8s ease-in-out;
 }
 
-@media screen and (max-width: 1024px){
+.below[color='green'] {
+  background: #73edae;
+}
+.below[color='purple'] {
+  background: #a473ed;
+}
+.below[color='red'] {
+  background: #ed7373;
+}
+.below[color='yellow'] {
+  background: #ede973;
+}
+.below[color='blue'] {
+  background: #89c5f5;
+}
+.below[color='pink'] {
+  background: #ed73d7;
+}
+
+@media screen and (max-width: 1024px) {
   body {
     min-height: 0vh;
     margin-bottom: 200px;
   }
-  .menu{
-    height:350px;
+  .menu {
+    height: 350px;
     width: 90%;
     align-items: center;
     justify-content: center;
@@ -210,18 +286,16 @@ body {
     height: 400px;
     width: 400px;
   }
-  
 }
 
-@media screen and (max-width: 600px){
-
+@media screen and (max-width: 600px) {
   body {
     min-height: 0vh;
     gap: 0px;
   }
-  .menu{
+  .menu {
     gap: 10px;
-    height:250px;
+    height: 250px;
     width: 90%;
     align-items: center;
     justify-content: center;
@@ -234,13 +308,13 @@ body {
     width: 80px;
   }
 
-  .cube{
+  .cube {
     margin-top: 8rem;
   }
 
   .cube,
   .top {
-    height:200px;
+    height: 200px;
     width: 200px;
   }
 
